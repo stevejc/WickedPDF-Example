@@ -1,8 +1,8 @@
 # PDFs with Wicked PDF
 
 This is example application that uses wicked pdf to:
-1) Attach a styled pdf to an email
-2) Allow uses to down a pdf version of a web page
+* Attach a styled pdf to an email
+* Allow users to down a pdf version of a web page
 
 To use wicked pdf:
 ```ruby
@@ -20,4 +20,25 @@ In my case, I had to update the config/initializers/wicked_pdf.rb and comment ou
 #:exe_path => '/usr/local/bin/wkhtmltopdf'
 ```
 
-This sample application using letter_opener to generate the sample emails.
+In order to add styling to the pdf, you will need to add a layout for the pdf file and specify the layout in the pdf render:
+
+In this example, I added one under 'views/layouts/pdf.html.erb' and specified the layout in the render with:
+```ruby
+:layout => 'pdf.html.erb'
+```
+
+Options:
+
+In order to view the pdf html in the browser, add ?debug=true to the end of the url:
+
+```ruby
+http://0.0.0.0:3000/invoices/1.pdf?debug=true
+```
+
+and add the following to the pdf render:
+
+```ruby
+:show_as_html => params[:debug].present?
+````
+
+This sample application uses letter_opener to generate the sample emails.
