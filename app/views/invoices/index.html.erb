@@ -1,0 +1,28 @@
+
+<div class='col-md-10 col-md-offset-1'>
+  <h2>Invoices</h2>
+  <%= link_to "New", new_invoice_path %>
+  <div class='panel panel-default'>
+    <div class='panel-body'>
+      <table class='table table-striped'>
+        <thead>
+          <tr>
+            <th>Invoice Date</th>
+            <th>Invoice Number</th>
+            <th>Invoice Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @invoices.each do |invoice| %>
+            <tr>
+              <td><%= invoice.name %></td>
+              <td><%= invoice.amount %></td>
+              <td><%= invoice.invoice_date %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

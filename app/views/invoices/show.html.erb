@@ -1,0 +1,31 @@
+<div class='col-md-8 col-md-offset-2 panel panel-default'>
+  <div class='panel-body'>
+
+    <h2>Invoice</h2>
+    <p><%= @invoice.name %></p>
+    <p><%= @invoice.invoice_date %></p>
+    <p><%= link_to 'Printable Receipt (PDF)', invoice_path(@invoice, format: 'pdf') %></p>
+    <p><%= link_to 'Email Receipt', email_invoice_path(id: @invoice) %></p>
+    
+    <h4>Summary</h4>
+    <div class='panel panel-default'>
+      <div class='panel-body'>
+        <table class='table table-hover no-border-top'>
+          <tr>
+            <td>Name:</td>
+            <td><%= @invoice.name %></td>
+          </tr>
+          <tr>
+            <td>Amount:</td>
+            <td><%= @invoice.amount %></td>
+          </tr>
+          <tr>
+            <td><%= Date %></td>
+            <td><%= @invoice.invoice_date %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </div>
+</div>

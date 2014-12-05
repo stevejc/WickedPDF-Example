@@ -1,0 +1,23 @@
+<h3>New Invoice</h3>
+
+<%= form_for @invoice do |f| %>
+  <div class="form-group">
+  <%= f.label :name, :class=>"control-label" %>
+  <%= f.text_field :name, label: "Full Name", :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label :amount, :class=>"control-label" %>
+  <%= f.text_field :amount, :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+  <%= f.label :invoice_date, :class=>"control-label" %>
+  <%= f.date_field :invoice_date, :class => "form-control" %>
+  </div>
+  
+  <div class="form-actions">
+    <%= f.submit class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', @user, :class => 'btn' %>
+  </div>
+<% end %>
